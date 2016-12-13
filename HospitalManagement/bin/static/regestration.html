@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html ng-app="onlineexam" ng-controller="UserController as ctrl">
+<head>
+<meta charset="ISO-8859-1"/>
+<title>User Registration</title>
+<script src="js/angular.min.js"></script>
+<script src="js/app.js"></script>
+<script src="js/controller/user_controller.js"></script>
+<script src="js/service/user_service.js"></script>
+
+</head>
+<body>  
+
+	<div>
+		<h1></h1>
+	</div>
+	<div>
+		<h2>Registration Form</h2>
+		<form  name="myForm">
+			<table align="center">
+
+				<tr>
+					<td>First Name</td>
+					<td> <input type="text" ng-model="ctrl.user.firstName" name="firstName"/>
+					</td>
+				</tr>
+
+				<tr>
+					<td>Last Name</td>
+					<td><input type="text" ng-model="ctrl.user.lastName" name="lasstName"/></td>
+				</tr>
+
+				<tr>
+					<td>Username</td>
+					<td><input type="text" ng-model="ctrl.user.username" name="username"/></td>
+				</tr>
+                <tr>
+					<td>Password</td>
+					<td><input type="text" ng-model="ctrl.user.password" name="password"/></td>
+				</tr>
+                
+				<tr>
+					<td>Mobile No</td>
+					<td><input type="text" ng-model="ctrl.user.mobileNo" name="mobileNo"/></td>
+				</tr>
+                 <tr>
+					<td>gender</td>
+					<td><input type="radio" ng-model="ctrl.user.gender" name="gender" value="male" /> MALE
+						&nbsp; &nbsp;&nbsp; <input type="radio" ng-model="ctrl.user.gender" name="gender"
+						value="female" /> FEMALE</td>
+				</tr>
+				
+
+
+				<tr>
+					<td><input type="submit" value="SUBMIT" ng-click="ctrl.submit()"/></td>
+					<td><input type="reset" value="CLEAR" /></td>
+				</tr>
+			</table>
+
+		</form>
+	</div>
+
+	<div></div>
+</body>
+</html>
