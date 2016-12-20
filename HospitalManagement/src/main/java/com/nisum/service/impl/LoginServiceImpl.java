@@ -1,5 +1,7 @@
 package com.nisum.service.impl;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -22,19 +24,20 @@ public class LoginServiceImpl {
 	{
 		repository.saveUser(user);
 	}
-	public void gerUser()
+	public User gerUser(Integer id)
 	{
-		repository.getUserInfo();	
+		
+	  return repository.getUserInfo(id);	
 	}
-	public void gerAllUser()
+	public List<User> gerAllUser()
 	{
-		repository.getAllUserInfo();	
+		return repository.getAllUserInfo();	
 	}
 	
-	public User check(User user)
+	public User check(String uname,String pwd)
 	{
 		
 	
-	return repository.checkLogin(user);
+	return repository.checkLogin(uname,pwd);
 	}
 }

@@ -3,10 +3,12 @@ package com.nisum.service.impl;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.nisum.model.Patient;
+import com.nisum.model.PatientDetails;
 import com.nisum.repo.impl.PatientRepoImpl;
-
+@Service
 public class PatientServiceImpl {
 	
 	
@@ -14,31 +16,31 @@ public class PatientServiceImpl {
 	PatientRepoImpl patientRepo;
 	
 	
-	public void savePatient(Patient patient)
+	public void savePatient(PatientDetails patient)
 	{
 		patientRepo.save(patient);
 		
 	}
 	
-	public Patient getPatient()
+	public PatientDetails getPatient(Long id)
 	{
 		
-		return patientRepo.get();
+		return patientRepo.get(id);
 	}
 	
-	public List<Patient> getPatientAll()
+	public List<PatientDetails> getPatientAll()
 	{
 		
 		return patientRepo.getAll();
 	}
 	
-	public void updatePatient(String id,String name)
+	public void updatePatient(PatientDetails patientDetails)
 	{
 		
-		patientRepo.update(id, name);
+		patientRepo.update(patientDetails);
 	}
 	
-	public void removePatient(String id)
+	public void removePatient(Long id)
 	{
 		patientRepo.delete(id);
 	}

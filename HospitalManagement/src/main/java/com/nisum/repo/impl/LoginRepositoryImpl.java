@@ -4,7 +4,6 @@ import java.util.List;
 
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.mongodb.core.MongoOperations;
 import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.data.mongodb.core.query.Criteria;
 import org.springframework.data.mongodb.core.query.Query;
@@ -35,35 +34,42 @@ public class LoginRepositoryImpl {
 		mongoTemplate.save(user);
 		System.out.println("sucessfully inserted");
 	}
-	public void getUserInfo()
+	public User getUserInfo(Integer id)
 	{
 		
-		User user=(User) mongoTemplate.findOne(new Query(Criteria.where("id").is("1")),
+		User user=(User) mongoTemplate.findOne(new Query(Criteria.where("id").is(id)),
 					User.class);
+		return user;
 	}
 	
-	public  void getAllUserInfo() {
+	public  List<User> getAllUserInfo() {
 		System.out.println("repo");
-		List<User> user= mongoTemplate.findAll(User.class);
+				
+		return mongoTemplate.findAll(User.class);
 		
-		for (User userInfo : user) {
-			
-	}
+		
 }
 	
-	public User checkLogin(User user)
-	{System.out.println(user.getUsername());
-	System.out.println(user.getPassword());
+	public User checkLogin(String uname,String pwd)
+	{
 		System.out.println("checkLogin");
 		Query query = new Query();
-		query.addCriteria(Criteria.where("username").is(user.getUsername()).and("password").is(user.getPassword()));
+		query.addCriteria(Criteria.where("username").is(uname).and("password").is(pwd));
 		User getuser=(User)mongoTemplate.findOne(query, User.class);
 		if(getuser !=null)
 			System.out.println("loginsuccess");
 		else
 			System.out.println("loginfailure");
 			
-		return user;
+		return getuser;
 		
 	}
+	public User getUserWithName(String uname)
+	{
+		
+		User user=(User) mongoTemplate.findOne(new Query(Criteria.where("username").is(uname)),
+					User.class);
+		return user;
+	}
+	
 }

@@ -23,6 +23,8 @@ public class User {
 	private String password;
 	private String username;
 	
+	private String role;
+	
 	public String getPassword() {
 		return password;
 	}
@@ -60,5 +62,10 @@ public class User {
 		this.mobileNo = mobileNo;
 	}
 	
-
+	public String getRole() {
+		return role;
+	}
+	public void setRole(String role) {
+		this.role = role;
+	}
 }

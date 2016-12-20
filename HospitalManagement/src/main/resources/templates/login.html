@@ -3,12 +3,6 @@
 <head>
 <meta charset="ISO-8859-1"/>
 <title>User Registration</title>
-<script src="js/angular.min.js"></script>
-<script src="js/app.js"></script>
-<script src="js/controller/user_controller.js"></script>
-<script src="js/service/user_service.js"></script>
-
-<script type="text/javascript"></script>
 <style type="text/css">
 
 #main
@@ -47,12 +41,14 @@ padding-top: 70px;
 <div id="title" style="text-align:center;padding-bottom:30px;color: red"><b>Hospital Management System</b></div>
 </div>
 <div id="body" >
-<table  id="loginTable" >
+<form  name="userForm" action="/login" method="post">
+<table  id="loginTable" style="align:center">
    <tr>
        <td >Username:</td>
        <td>
-      <input type="text" ng-model="ctrl.user.username" name="uname"/>
+      <input type="text" ng-model="ctrl.user.username" name="uname" />
       </td>
+      
     </tr>
     <tr height="14px">
     </tr>
@@ -69,22 +65,26 @@ padding-top: 70px;
     <tr>
     <td>
    <!--  <input type="submit" value="login"/> -->
-   <input type="submit" value="SUBMIT" ng-click="ctrl.login()"/>
+   <input type="submit" value="SUBMIT"/>
     </td>
     
     <td>
     <!-- <input type="submit" value="Register"/> -->
-    <a href="regestration.html">Register</a>
+    <a ng-href="regestration.html">Register</a>
     </td>
     </tr>
 
 </table>
+</form>
 </div>
 <div id="footer">
 </div>
 </div>
 
-
+<script src="js/angular.min.js"></script>
+<script src="js/app.js"></script>
+<script src="js/controller/user_controller.js"></script>
+<script src="js/service/user_service.js"></script>
 </body>
 
 
