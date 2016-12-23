@@ -61,7 +61,7 @@ angular.module('onlineexam').controller('PatientController', ['$scope', 'Patient
             createUser(self.user);
         }else{
             updateUser(self.user, self.user.id);
-            console.log('User updated with id ', self.user.id);
+           // console.log('User updated with id ', self.user.id);
         }
         reset();
     }

@@ -29,7 +29,7 @@ public class LoginController {
 	
 	// ...........login page...............
 	
-	@RequestMapping("/home")
+	@RequestMapping("/")
 	public String home() {
 		System.out.println("home page");
 		return "login";
@@ -61,7 +61,7 @@ public class LoginController {
 		System.out.println("Creating User " + user.getFirstName());
 
 		// user.setId(1);
-		user.setRole("ADMIN");
+		user.setRole("USER");
 		loginService.insert(user);
 		HttpHeaders headers = new HttpHeaders();
 		// headers.setLocation(ucBuilder.path("/user/{id}").buildAndExpand(user.getId()).toUri());
@@ -70,10 +70,12 @@ public class LoginController {
 
 	@RequestMapping("/admin")
 	public String admin() {
+		System.out.println("admin");
 		return "admin";
+		//return "patient";
 	}
 
-	@RequestMapping(value ="/logout",method = RequestMethod.POST)
+	@RequestMapping(value ="/logout")
 	public String logout(HttpServletRequest request) {
 		request.getSession().invalidate();
 		return "login";

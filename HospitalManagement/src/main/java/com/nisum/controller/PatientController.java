@@ -25,7 +25,7 @@ public class PatientController {
 	@Autowired
 	PatientRepository patientRepository;
 	
-	@Value("${studentService}")
+//	@Value("${uname}")
 	private String message;
 	//get Patient Object
 	@RequestMapping("/patient")
