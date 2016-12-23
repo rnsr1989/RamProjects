@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html ng-app="onlineexam" ng-controller="UserController as ctrl">
+<head>
+<meta charset="ISO-8859-1"/>
+<title>User Registration</title>
+<style type="text/css">
+
+#main
+
+{
+height:1000px;
+background-color:white;
+}
+#header
+{
+height:180px;
+
+//background-white;
+}
+#title
+{
+font-size: 20px;
+padding-top: 50px;
+
+}
+#body
+{
+height:350px;
+//background-color: blue;
+}
+#loginTable
+{
+padding-left: 480px;
+padding-top: 70px;
+}
+</style>
+</head>
+<body>
+<div id="main">
+<div id="header">
+<div id="title" style="text-align:center;padding-bottom:30px;color: red"><b>Hospital Management System</b></div>
+</div>
+<div id="body" >
+<form action="/login">
+<table  id="loginTable" style="align:center">
+   <tr>
+       <td >Username:</td>
+       <td>
+      <input type="text" ng-model="ctrl.user.username" name="uname" required="required"/>
+      </td>
+    </tr>
+    <tr height="14px">
+    </tr>
+    <tr>
+    <td>
+    Password:
+    </td>
+    <td>
+    <input type="password" ng-model="ctrl.user.password" name="pwd"/>
+    </td>
+    </tr>
+    <tr height="14px">
+    </tr>
+    <tr>
+    <td>
+   <!--  <input type="submit" value="login"/> -->
+   <input type="submit" value="SUBMIT"/>
+    </td>
+    
+    <td>
+    <!-- <input type="submit" value="Register"/> -->
+    <a ng-href="regestration.html">Register</a>
+    </td>
+    </tr>
+
+</table>
+</form>
+</div>
+<div id="footer">
+</div>
+</div>
+
+<script src="js/angular.min.js"></script>
+<script src="js/app.js"></script>
+<script src="js/controller/user_controller.js"></script>
+<script src="js/service/user_service.js"></script>
+</body>
+
+
+</html>
