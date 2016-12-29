@@ -22,25 +22,28 @@ public class PatientController {
 	@Autowired
 	PatientServiceImpl patientService;
 	
+	
 	@Autowired
 	PatientRepository patientRepository;
 	
-//	@Value("${uname}")
-	private String message;
+
 	//get Patient Object
 	@RequestMapping("/patient")
 	public PatientDetails getPatient(Long id)
 	{
+		System.out.println("getpatinet");
 		//patientRepository.findByUsername("ram");
-		patientRepository.findByUsername("ram");
+	//	patientRepository.findByUsername("ram");
 	return patientService.getPatient(id);
 	}
 	
 	@RequestMapping("/patientRegistration")
 	public void  patientRegistration(@RequestBody PatientDetails patient)
 	{
-		System.out.println("pateintregistraion");
-	patientService.savePatient(patient);
+		
+		
+		System.out.println("pateintregistraion2");
+	    patientService.savePatient(patient);
 		
 	}
 	
@@ -48,12 +51,15 @@ public class PatientController {
     public List<PatientDetails> getAll()
     {
 	System.out.println("getPatientAll");
-	return patientService.getPatientAll();
+	
+	 List<PatientDetails> patientDetails=patientService.getPatientAll();
+	return patientDetails;
+	//return patientService.getPatientAll();
     }
 	
 	@RequestMapping(value = "/removePatient/{id}", method = RequestMethod.DELETE)
 	//@RequestMapping(value = "/removePatient/{id}" ,method = RequestMethod.DELETE)
-    public void remove(@PathVariable("id")long id)
+    public void remove(@PathVariable("id")Long id)
     {
 		System.out.println("remove controller");
            patientService.removePatient(id);
@@ -77,21 +83,11 @@ public class PatientController {
 	currentPateint.setEmail(patient.getEmail());
 	patientService.updatePatient(currentPateint);
 	return new ResponseEntity<PatientDetails>(currentPateint, HttpStatus.OK);
-    }
 	
-	@RequestMapping("/removePatient")
-    public void  getAll2()
-    {
-	
-	System.out.println("enter");
     }
 	
 	
-	@RequestMapping("/message")
-    String getMessage() {
-    	
-    	System.out.println("controller");
-    	System.out.println("message="+message);
-        return this.message;
-    }
+	
+	
+	
 }

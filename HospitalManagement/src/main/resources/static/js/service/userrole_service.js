@@ -1,6 +1,7 @@
 'use strict';
- 
-angular.module('onlineexam').factory('PatientService', ['$http', '$q', function($http, $q){
+
+PatientService
+angular.module('onlineexam').factory('Userrole_Service', ['$http', '$q', function($http, $q){
  
     var REST_SERVICE_URI = '/patient';
  
@@ -28,7 +29,7 @@ angular.module('onlineexam').factory('PatientService', ['$http', '$q', function(
         return deferred.promise;
     }
  
-    function createUser(user) {alert("createuser");
+    function createUser(user) {
         var deferred = $q.defer();
         
         $http.post("/patientRegistration", user)

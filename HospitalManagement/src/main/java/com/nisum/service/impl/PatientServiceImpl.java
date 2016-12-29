@@ -12,41 +12,49 @@ import com.nisum.repo.impl.PatientRepoImpl;
 public class PatientServiceImpl {
 	
 	
+	
 	@Autowired
 	PatientRepoImpl patientRepo;
 	
 	
 	public void savePatient(PatientDetails patient)
 	{
+		System.out.println("save patient");
 		patientRepo.save(patient);
 		
 	}
 	
 	public PatientDetails getPatient(Long id)
 	{
-		
+		System.out.println("getpatient");
 		return patientRepo.get(id);
 	}
 	
 	public List<PatientDetails> getPatientAll()
 	{
-		
+		System.out.println("getpatientAll");
 		return patientRepo.getAll();
 	}
 	
 	public void updatePatient(PatientDetails patientDetails)
 	{
-		
+		System.out.println("updatePatient");
 		patientRepo.update(patientDetails);
 	}
 	
 	public void removePatient(Long id)
 	{
+		System.out.println("removePatient");
 		patientRepo.delete(id);
 	}
 	
-	
+	public void removePatient(int id)
+	{
+		System.out.println("removePatient");
+		//patientRepo.delete(id);
+	}
 	
 
+	
 
 }

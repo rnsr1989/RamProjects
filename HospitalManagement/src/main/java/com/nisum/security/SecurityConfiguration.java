@@ -43,10 +43,34 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 		this.configureFilters(http);
 
 		http.authorizeRequests().antMatchers("/", "/home", "/logout").permitAll().and().formLogin().loginPage("/login")
-				.usernameParameter("uname").passwordParameter("pwd").successHandler(customSuccessHandler);
+			.usernameParameter("uname").passwordParameter("pwd").successHandler(customSuccessHandler);
 		
 		
+		
+		http.authorizeRequests().antMatchers("/", "/home", "/logout").permitAll().antMatchers("/patientDetails").access("hasRole('ADMIN')").and().formLogin().loginPage("/login")
+		.usernameParameter("uname").passwordParameter("pwd").successHandler(customSuccessHandler);
+//		
+//		http.authorizeRequests().antMatchers("/home").permitAll()
+//	    .and().formLogin().loginPage("/login")
+//		.usernameParameter("uname").passwordParameter("pwd")
+//		// .defaultSuccessUrl("/userslist")
+//		.successHandler(customSuccessHandler).and().logout().logoutSuccessUrl("/logout")
+//		// .and().exceptionHandling().accessDeniedPage("/403")
+//		.and().csrf().disable();
+		
+		
+//		//new code
+//		http.authorizeRequests()
+//        .antMatchers("/").permitAll()
+//       // .antMatchers("/admin/**").access("hasRole('ADMIN')")
+//        //.antMatchers("/db/**").access("hasRole('ADMIN') and hasRole('DBA')")
+//        .and().formLogin().loginPage("/login").successHandler(customSuccessHandler)
+//        .usernameParameter("ssoId").passwordParameter("password")
+//        .and().csrf()
+//        .and().exceptionHandling().accessDeniedPage("/Access_Denied");
+//    
 	}
+	
 
 	@SuppressWarnings("unchecked")
 	private void configureFilters(HttpSecurity http) {

@@ -13,7 +13,7 @@ angular.module('onlineexam').controller('PatientController', ['$scope', 'Patient
  
     fetchAllUsers();
  
-    function fetchAllUsers(){alert("getall");
+    function fetchAllUsers(){
         UserService.fetchAllUsers()
             .then(
             function(d) {
@@ -25,7 +25,7 @@ angular.module('onlineexam').controller('PatientController', ['$scope', 'Patient
         );
     }
  
-    function createUser(user){alert(user);
+    function createUser(user){
         UserService.createUser(user)
             .then(
             fetchAllUsers,
@@ -35,7 +35,7 @@ angular.module('onlineexam').controller('PatientController', ['$scope', 'Patient
         );
     }
  
-    function updateUser(user, id){alert("updatepatient");
+    function updateUser(user, id){
         UserService.updateUser(user, id)
             .then(
             fetchAllUsers,

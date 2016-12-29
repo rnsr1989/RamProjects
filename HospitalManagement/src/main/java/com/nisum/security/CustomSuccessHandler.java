@@ -19,6 +19,7 @@ import org.springframework.stereotype.Component;
 public class CustomSuccessHandler extends SimpleUrlAuthenticationSuccessHandler {
 
 	private RedirectStrategy redirectStrategy = new DefaultRedirectStrategy();
+	
 
 	@Override
 	protected void handle(HttpServletRequest request, HttpServletResponse response, Authentication authentication)
@@ -43,13 +44,13 @@ public class CustomSuccessHandler extends SimpleUrlAuthenticationSuccessHandler 
 		for (GrantedAuthority a : authorities) {
 			roles.add(a.getAuthority());
 		}
-
+		
 		if (isDba(roles)) {
 			url = "/admin";
 		} else if (isAdmin(roles)) {
-			url = "/admin";
-		} else if (isUser(roles)) {
 			url = "/patientPage";
+		} else if (isUser(roles)) {
+			url = "/admin";
 		} else {
 			url = "/accessDenied";
 		}

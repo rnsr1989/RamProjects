@@ -34,6 +34,7 @@ public class PatientRepoImpl {
 		
 		pateint.setId(getUser.size()+1);
 		mongotemplate.save(pateint);
+		System.out.println("saved succesfully");
 		
 	}
 	

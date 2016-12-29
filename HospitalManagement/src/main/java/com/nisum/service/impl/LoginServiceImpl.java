@@ -40,4 +40,6 @@ public class LoginServiceImpl {
 	
 	return repository.checkLogin(uname,pwd);
 	}
+	
+	
 }
