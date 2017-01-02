@@ -15,7 +15,7 @@ angular.module('onlineexam').factory('PatientService', ['$http', '$q', function(
  
     function fetchAllUsers() {
         var deferred = $q.defer();
-        $http.get("/getPatientAll")
+        $http.get("/patient/getPatientAll")
             .then(
             function (response) {
                 deferred.resolve(response.data);
@@ -28,10 +28,10 @@ angular.module('onlineexam').factory('PatientService', ['$http', '$q', function(
         return deferred.promise;
     }
  
-    function createUser(user) {alert("createuser");
+    function createUser(user) {alert("createuser22");
         var deferred = $q.defer();
         
-        $http.post("/patientRegistration", user)
+        $http.post("/patient/patientRegistration", user)
             .then(
             function (response) {
                 deferred.resolve(response.data);
@@ -46,7 +46,7 @@ angular.module('onlineexam').factory('PatientService', ['$http', '$q', function(
  
  
     function updateUser(user, id) {
-        var REST_SERVICE_URI = '/updatePatient/'+id;
+        var REST_SERVICE_URI = '/patient/updatePatient/'+id;
         var deferred = $q.defer();
         $http.put(REST_SERVICE_URI, user)
             .then(
@@ -61,9 +61,9 @@ angular.module('onlineexam').factory('PatientService', ['$http', '$q', function(
         return deferred.promise;
     }
  
-    function deleteUser(id) {
+    function deleteUser(id) {alert("removepatient22");
     	//$http.delete(REST_SERVICE_URI+id)
-    	var REST_SERVICE_URI = '/removePatient/'+id;
+    	var REST_SERVICE_URI = '/patient/removePatient/'+id;
         var deferred = $q.defer();
         alert("removePatient");
         $http.delete(REST_SERVICE_URI)

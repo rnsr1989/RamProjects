@@ -37,7 +37,7 @@ public class PatientController {
 	return patientService.getPatient(id);
 	}
 	
-	@RequestMapping("/patientRegistration")
+	@RequestMapping("/patient/patientRegistration")
 	public void  patientRegistration(@RequestBody PatientDetails patient)
 	{
 		
@@ -47,7 +47,7 @@ public class PatientController {
 		
 	}
 	
-	@RequestMapping("/getPatientAll")
+	@RequestMapping("/patient/getPatientAll")
     public List<PatientDetails> getAll()
     {
 	System.out.println("getPatientAll");
@@ -57,7 +57,7 @@ public class PatientController {
 	//return patientService.getPatientAll();
     }
 	
-	@RequestMapping(value = "/removePatient/{id}", method = RequestMethod.DELETE)
+	@RequestMapping(value = "/patient/removePatient/{id}", method = RequestMethod.DELETE)
 	//@RequestMapping(value = "/removePatient/{id}" ,method = RequestMethod.DELETE)
     public void remove(@PathVariable("id")Long id)
     {
@@ -67,7 +67,7 @@ public class PatientController {
     }   
 	//@RequestMapping(value = "/updatePatient/{id}", method = RequestMethod.PUT)
 	
-	@RequestMapping(value = "/updatePatient/{id}", method = RequestMethod.PUT)
+	@RequestMapping(value = "/patient/updatePatient/{id}", method = RequestMethod.PUT)
     public ResponseEntity<PatientDetails> update(@PathVariable("id") long id, @RequestBody PatientDetails patient)
     {
 	
