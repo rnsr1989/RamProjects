@@ -18,8 +18,9 @@ import com.nisum.repo.PatientRepository;
 import com.nisum.service.impl.PatientServiceImpl;
 
 
+//PatientDataController
 @RestController
-public class PatientController {
+public class PatientDataController {
 	@Autowired
 	PatientServiceImpl patientService;
 	
@@ -29,7 +30,7 @@ public class PatientController {
 	
 
 	//get Patient Object
-	@RequestMapping("/patient")
+	@RequestMapping("/restauth/patient")
 	public PatientDetails getPatient(Long id)
 	{
 		System.out.println("getpatinet");
@@ -38,7 +39,7 @@ public class PatientController {
 	return patientService.getPatient(id);
 	}
 	
-	@RequestMapping("/patient/patientRegistration")
+	@RequestMapping("/restauth/patientRegistration")
 	public void  patientRegistration(@RequestBody PatientDetails patient)
 	{
 		
@@ -48,7 +49,7 @@ public class PatientController {
 		
 	}
 	
-	@RequestMapping("/patient/getPatientAll")
+	@RequestMapping("/restauth/getPatientAll")
     public List<PatientDetails> getAll()
     {
 	System.out.println("getPatientAll");
@@ -58,7 +59,7 @@ public class PatientController {
 	//return patientService.getPatientAll();
     }
 	
-	@RequestMapping(value = "/patient/removePatient/{id}", method = RequestMethod.DELETE)
+	@RequestMapping(value = "/restauth/removePatient/{id}", method = RequestMethod.DELETE)
 	//@RequestMapping(value = "/removePatient/{id}" ,method = RequestMethod.DELETE)
     public void remove(@PathVariable("id")Long id)
     {
@@ -68,7 +69,7 @@ public class PatientController {
     }   
 	//@RequestMapping(value = "/updatePatient/{id}", method = RequestMethod.PUT)
 	
-	@RequestMapping(value = "/patient/updatePatient/{id}", method = RequestMethod.PUT)
+	@RequestMapping(value = "/restauth/updatePatient/{id}", method = RequestMethod.PUT)
     public ResponseEntity<PatientDetails> update(@PathVariable("id") long id, @RequestBody PatientDetails patient)
     {
 	
